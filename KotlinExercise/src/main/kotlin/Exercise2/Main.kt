@@ -5,8 +5,8 @@ fun main(){
 //    override one method - one using inheritance and another using interfaces.
 
     // Two different implementations of "ParentClass"
-    val implementation = ParentClass()
-    val implementation2 = ParentClass()
+    val implementation = ChildrenClass1()
+    val implementation2 = ChildrenClass2()
     implementation.printNameWithClass("Mark")
     implementation2.printNameWithClass("Rick")
 
@@ -34,6 +34,18 @@ class ChildtByInterface2 : ParentInterface {
 }
 
 
-class ParentClass {
-    fun printNameWithClass(name: String) = println("Hi my name is $name")
+open class ParentClass() {
+    open fun printNameWithClass(name: String) = println("Hi my name is $name")
+}
+
+class ChildrenClass1 : ParentClass() {
+    override fun printNameWithClass(name: String) {
+        println("Hi my name is $name from ChildrenCLass1")
+    }
+}
+
+class ChildrenClass2 : ParentClass() {
+    override fun printNameWithClass(name: String) {
+        println("Hi my name is $name from ChildrenCLass2")
+    }
 }
